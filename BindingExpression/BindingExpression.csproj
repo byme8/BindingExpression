@@ -18,7 +18,7 @@
         <Description>This package allows to generate binding paths via expression trees with compile-time validation.</Description>
         <PackageTags>Xamarin, binding, expressions, analyzers</PackageTags>
         <NoPackageAnalysis>true</NoPackageAnalysis>
-        <PackageLicenseUrl>https://github.com/byme8/BindingExpression/blob/master/LICENSE</PackageLicenseUrl>
+        <License>https://github.com/byme8/BindingExpression/blob/master/LICENSE</License>
 
         <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
     </PropertyGroup>
