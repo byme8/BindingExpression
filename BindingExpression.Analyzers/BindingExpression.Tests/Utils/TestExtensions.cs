@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
-namespace BindingExpression.Test.Units
+namespace BindingExpression.Tests.Utils
 {
     public static class TestExtensions
     {

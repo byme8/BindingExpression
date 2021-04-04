@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Buffers;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using Microsoft.CodeAnalysis;
 
@@ -32,20 +33,36 @@ namespace BindingExpression.Test.Data
                 MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location),
                 MetadataReference.CreateFromFile(typeof(Attribute).Assembly.Location),
                 MetadataReference.CreateFromFile(typeof(ArrayPool<>).Assembly.Location),
+                MetadataReference.CreateFromFile(typeof(Expression<>).Assembly.Location),
+                MetadataReference.CreateFromFile(typeof(BindingExpressionAttribute).Assembly.Location),
             };
         }
         
         public const string ProgramCS = @"
     using System;
+    using System.Linq.Expressions;
+    using BindingExpression;
 
     namespace TestProject 
     {
+        public class ViewModel
+        {
+            public int[] Items { get; }
+        }
+
         class Program
         {
             static void Main(string[] args)
             {
+                var viewModel = new ViewModel();
+                // line to replace
+            }  
+
+            public static void ListView([BindingExpression]Expression<Func<object>> binding)
+            {
+        
             }
-        }   
+        } 
     }
 ";
     }
