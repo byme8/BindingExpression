@@ -84,9 +84,9 @@ public static class XamarinElements
 using static XamarinElements;
 // ...
 
-Content = ListView(() => ViewModel.Items, () => 
+Content = ListView(() => ViewModel.Items, o => 
           new Label { TextColor = Color.RoyalBlue }
-            .Bind(Label.TextProperty, o => o.Item.Date.Hour))
+            .Bind(Label.TextProperty, () => o.Item.Date.Hour))
             .TextCenterHorizontal()
             .TextCenterVertical() 
          )
@@ -100,9 +100,9 @@ Now it looks good and we can create a binding of any length. Meanwhile it has is
 using static XamarinElements;
 // ...
 
-Content = ListView(() => ViewModel.Items, () => 
+Content = ListView(() => ViewModel.Items, o => 
           new Label { TextColor = Color.RoyalBlue }
-            .Bind(Label.TextProperty, o => o.Item.Date.Hour + 1)) // pay attention to this line
+            .Bind(Label.TextProperty, () => o.Item.Date.Hour + 1)) // pay attention to this line
             .TextCenterHorizontal()
             .TextCenterVertical() 
          )
@@ -147,9 +147,9 @@ After these tweaks our broken sample will generete an error:
 using static XamarinElements;
 // ...
 
-Content = ListView(() => ViewModel.Items, () => 
+Content = ListView(() => ViewModel.Items, o => 
           new Label { TextColor = Color.RoyalBlue }
-            .Bind(Label.TextProperty, o => o.Item.Date.Hour + 1)) // error here
+            .Bind(Label.TextProperty, () => o.Item.Date.Hour + 1)) // error here
             .TextCenterHorizontal()
             .TextCenterVertical() 
          )
