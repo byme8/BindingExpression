@@ -118,7 +118,7 @@ To make the analyzer work we will need to install a nuget package ` BindingExpre
 public static class XamarinElements
 {
   public static ListView ListView<T>(
-    [BindingExpression]Expression<Func<IEnumerable<T>>> path,  // check this like
+    [BindingExpression]Expression<Func<IEnumerable<T>>> path,  // check this line
     Func<T, View> itemTemplate = null)
   {
       var pathFromExpression = path.GetBindingPath();
@@ -130,7 +130,7 @@ public static class XamarinElements
   
   public static TView Bind<TView, T>(
     this TView view, BindableProperty property, 
-    [BindingExpression]Expression<Func<T>> expression) // check this like
+    [BindingExpression]Expression<Func<T>> expression) // check this line
     where TView: BindableObject
   {
       view.Bind(property, expression.GetBindingPath());
